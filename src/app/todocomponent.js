@@ -63,7 +63,7 @@ class TodoComponent extends React.Component{
 
                             </div>
                         </Tab>
-                        <Tab label="Item Two"  onActive={[this.srcOff]}>
+                        <Tab label="Item Two"  onActive={this.srcOff}>
                             <div>
                                 <div className='sliderOne'>
                                     <div className='single-item'>
