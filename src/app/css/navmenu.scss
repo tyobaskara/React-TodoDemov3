@@ -1,0 +1,12 @@
+.navMenu {
+    font-size: 0;
+    text-align: left;
+    li {
+        font-size: initial;
+        display: inline-block;
+        margin: 5px 10px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
