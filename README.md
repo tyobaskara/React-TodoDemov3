@@ -10,5 +10,7 @@
 - using SCSS SASS 
 - Bundle CSS and Minified
 - Minified JS ON PRODUCTION ENVIRONMENT
+
+How to Run:
 - npm install 
 - npm start
