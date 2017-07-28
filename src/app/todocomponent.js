@@ -62,7 +62,7 @@ class TodoComponent extends React.Component{
                                 Lorem Ipsum
                             </div>
                         </Tab>
-                        <Tab label="onActive">
+                        <Tab label="onActive" onActive={this.handleActive}>
                             <div>
                                 Dolor Sit Amet
                             </div>
@@ -73,6 +73,10 @@ class TodoComponent extends React.Component{
             </MuiThemeProvider>
         );
     }// render
+
+    handleActive(){
+        alert('onActive');
+    }
 
     //onDelete
     onDelete(item){
