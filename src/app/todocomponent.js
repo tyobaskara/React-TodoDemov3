@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //mui theme
@@ -19,6 +19,12 @@ injectTapEventPlugin();
 //Components
 import TodoItem from './todoitem';
 import AddItem from './additem';
+
+//jquery
+import $ from 'jquery';
+
+//slick js
+require('./vendor/slick/slick.js');
 
 //Create component
 class TodoComponent extends React.Component{
@@ -48,7 +54,7 @@ class TodoComponent extends React.Component{
                     </ul>
 
                     <Tabs>
-                        <Tab label="Item One" >
+                        <Tab label="Item One"  onActive={this.srcOff}>
                             <div>
 
                                 <p>The busies people have the most leisure...</p>
@@ -57,14 +63,25 @@ class TodoComponent extends React.Component{
 
                             </div>
                         </Tab>
-                        <Tab label="Item Two" >
+                        <Tab label="Item Two"  onActive={[this.srcOff]}>
                             <div>
-                                Lorem Ipsum
+                                <div className='sliderOne'>
+                                    <div className='single-item'>
+                                        <div><h3>1</h3></div>
+                                        <div><h3>2</h3></div>
+                                        <div><h3>3</h3></div>
+                                        <div><h3>4</h3></div>
+                                        <div><h3>5</h3></div>
+                                        <div><h3>6</h3></div>
+                                    </div>
+                                </div>
                             </div>
                         </Tab>
                         <Tab label="onActive" onActive={this.handleActive}>
                             <div>
-                                Dolor Sit Amet
+                                <iframe id="video" width="100%" height="480"
+                                src="" data-src="https://www.youtube.com/embed/XGSy3_Czz8k">
+                                </iframe>
                             </div>
                         </Tab>
                     </Tabs>
@@ -74,8 +91,14 @@ class TodoComponent extends React.Component{
         );
     }// render
 
+    srcOff(){
+        document.getElementById('video').src = '';
+    }
+
     handleActive(){
-        alert('onActive');
+        var src = document.getElementById('video').getAttribute("data-src");
+        console.log(src);
+        document.getElementById('video').src = src;
     }
 
     //onDelete
@@ -104,6 +127,10 @@ class TodoComponent extends React.Component{
     }
     componentDidMount(){
         console.log('componentDidMount todocomponent');
+
+        $(".single-item").slick({
+            dots: true
+        });
     }
 
 };

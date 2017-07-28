@@ -1,6 +1,12 @@
+//VENDOR
+@import
+    './vendor/slick/slick-theme',
+    './vendor/slick/slick';
+
 //CUSTOM
 @import
     './index',
     './additem',
     './todoItem',
-    './navmenu';
+    './navmenu',
+    './sliderOne';

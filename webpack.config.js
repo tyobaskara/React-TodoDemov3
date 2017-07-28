@@ -38,6 +38,11 @@ module.exports = {
                         minimize: true
                     }
                 }]
+            },
+            {
+                test: /\.(png|jpg|woff|svg|eot|gif|ttf)$/,
+                loader: 'file-loader',
+                include: path.join(__dirname, 'src')
             }
         ],
         
