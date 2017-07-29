@@ -10,7 +10,6 @@ const muiTheme = getMuiTheme(darkBaseTheme);
 
 //mui components
 import {Tabs, Tab} from 'material-ui/Tabs';
-import Slider from 'material-ui/Slider';
 
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -19,12 +18,8 @@ injectTapEventPlugin();
 //Components
 import TodoItem from './todoitem';
 import AddItem from './additem';
+import SliderOne from './sliderone';
 
-//jquery
-import $ from 'jquery';
-
-//slick js
-require('./vendor/slick/slick.js');
 
 //Create component
 class TodoComponent extends React.Component{
@@ -64,18 +59,7 @@ class TodoComponent extends React.Component{
                             </div>
                         </Tab>
                         <Tab label="Item Two"  onActive={this.srcOff}>
-                            <div>
-                                <div className='sliderOne'>
-                                    <div className='single-item'>
-                                        <div><h3>1</h3></div>
-                                        <div><h3>2</h3></div>
-                                        <div><h3>3</h3></div>
-                                        <div><h3>4</h3></div>
-                                        <div><h3>5</h3></div>
-                                        <div><h3>6</h3></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <SliderOne />
                         </Tab>
                         <Tab label="onActive" onActive={this.handleActive}>
                             <div>
@@ -127,10 +111,6 @@ class TodoComponent extends React.Component{
     }
     componentDidMount(){
         console.log('componentDidMount todocomponent');
-
-        $(".single-item").slick({
-            dots: true
-        });
     }
 
 };
