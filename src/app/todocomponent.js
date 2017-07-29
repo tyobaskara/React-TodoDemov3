@@ -50,7 +50,7 @@ class TodoComponent extends React.Component{
 
                     <Tabs>
                         <Tab label="Item One"  onActive={this.srcOff}>
-                            <div>
+                            <div className="todos">
 
                                 <p>The busies people have the most leisure...</p>
                                 <ul>{todos}</ul>
