@@ -4,6 +4,7 @@
 + using jquery
 + using slickjs slider plugin
 + using file-loader to read files,image file,etc
++ Using Infinite Scroll with Ajax Json Request
 
 - using React.Component 
 - using React.Helmet for Insert (Meta Tags,title,etc) on <Head>, for each component
