@@ -1,0 +1,16 @@
+.infinitescroll1 {
+    margin-top: 20px;
+    li {
+        display: block;
+        height: 100px;
+        padding: 20px;
+        background: darkgray;
+        &:nth-child(even) {
+            background: darkkhaki;
+        }
+    }
+}
+.loaderImg {
+    display: block;
+    margin: 10px auto;
+}
