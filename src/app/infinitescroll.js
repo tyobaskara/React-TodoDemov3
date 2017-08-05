@@ -23,7 +23,7 @@ class InfiniteScroll extends React.Component{
                     <ul className="ajMenu">
                         <li><button id="loadMore">Load More</button></li>
                         <li className="sortAjax"><input type="checkbox" id="sort" name="sortajax"/>
-                            <label htmlFor="sort">a-z</label>
+                            <label htmlFor="sort">Sort</label>
                         </li>
                     </ul>
                     
