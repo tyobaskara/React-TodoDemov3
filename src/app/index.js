@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Helmet} from "react-helmet";
 require('./css/main.scss');
-import {Router, Route, browserHistory, Link} from 'react-router';
+import { BrowserRouter as Router, Route, Link, browserHistory } from 'react-router-dom';
 
 //Module requires
 import TodoComponent from './todocomponent';
@@ -12,8 +12,10 @@ class App extends React.Component{
     render(){
         return(
             <Router history={browserHistory}>
-                <Route path={'/'} component={TodoComponent}></Route>
-                <Route path={'/infinitescroll'} component={InfiniteScroll}></Route>
+                <div>
+                    <Route exact path={'/'} component={TodoComponent}></Route>
+                    <Route path={'/infinitescroll'} component={InfiniteScroll}></Route>
+                </div>
             </Router>
         );
     }
