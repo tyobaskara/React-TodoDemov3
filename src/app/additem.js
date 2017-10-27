@@ -12,7 +12,7 @@ class AddItem extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        console.log(this.refs.newItem.value);
+        //console.log(this.refs.newItem.value);
         var value = this.refs.newItem.value;
         this.props.onAdd(value);
 

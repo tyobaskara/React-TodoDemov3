@@ -63,7 +63,10 @@ class InfiniteScroll extends React.Component {
             function loadAjax() {
                 $.ajax({
                     url: "https://jsonplaceholder.typicode.com/posts",
+                    method: 'GET',
                     success: function (data) {
+                        dataLength = data.length;
+                        console.log(data);
 
                         // Sorting: typeof json === Array //
                         var sorted;
@@ -83,8 +86,6 @@ class InfiniteScroll extends React.Component {
                             sorted = data;
                         }
                         // sorting //
-
-                        dataLength = data.length;
 
                         $('.loaderWrap').hide();
 
@@ -109,9 +110,7 @@ class InfiniteScroll extends React.Component {
                         });
 
                         keyBefore = keyAfter;
-                        keyAfter = keyBefore + 2;
-                        console.log(keyBefore, keyAfter);
-                        console.log(dataLength);
+                        keyAfter = keyBefore + 10;
                     },
                     error: function (xhr, status, text) {
                         console.log(status + ' ' + text);
@@ -129,9 +128,10 @@ class InfiniteScroll extends React.Component {
                 }
             });
 
-            //Load ajax on Scroll
-            $(window).bind('scroll', function () {
-                if ($(window).scrollTop() >= $('.infinitescroll1 .post:last-child').offset().top + $('.infinitescroll1 .post:last-child').outerHeight() - window.innerHeight) {
+            // Document Scroll Event
+            $(document).scroll(function () {
+                var curPosPer = ((($(window).scrollTop() + $(window).height() + 1) / $(document).height()) * 100); //current scroll position has reached to 80%
+                if (curPosPer >= 80) {
                     if (keyBefore < dataLength) {
                         $('.loaderWrap').show();
                         loadAjax();

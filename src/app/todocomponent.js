@@ -4,9 +4,9 @@ import { Helmet } from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //mui theme
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-const muiTheme = getMuiTheme(darkBaseTheme);
+const muiTheme = getMuiTheme(lightBaseTheme);
 
 //mui components
 import { Tabs, Tab } from 'material-ui/Tabs';
@@ -37,10 +37,12 @@ class TodoComponent extends React.Component {
             )
         }.bind(this));
         return (
-            <MuiThemeProvider muiTheme={muiTheme}>
+            <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
                 <div id="wrapperOne">
                     <Helmet>
-                        <title>To Do List</title>
+                        <meta name="description" content="Prasetya Aji Baskara who accidently in love with front end technology and decided to explore more with it" />
+                        <link rel="shortcut icon" type="image/x-icon" href="#" />
+                        <title>Home - Prasetya Aji Baskara</title>
                     </Helmet>
 
                     <ul className="navMenu">
@@ -90,14 +92,14 @@ class TodoComponent extends React.Component {
 
     handleActive() {
         var src = document.getElementById('video').getAttribute("data-src");
-        console.log(src);
+        //console.log(src);
         document.getElementById('video').src = src;
     }
 
     //onDelete
     onDelete(item) {
         var updatedTodos = this.state.todos.filter(function (val, index) {
-            console.log(item, val);
+            //console.log(item, val);
             return item !== val;
         });
         this.setState({
@@ -116,10 +118,10 @@ class TodoComponent extends React.Component {
     }
 
     componentWillMount() {
-        console.log('componentWillMount todocomponent');
+        console.log('todocomponent WillMount');
     }
     componentDidMount() {
-        console.log('componentDidMount todocomponent');
+        console.log('todocomponent DidMount');
     }
 
 };

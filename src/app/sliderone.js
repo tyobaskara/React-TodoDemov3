@@ -30,8 +30,11 @@ class SliderOne extends React.Component{
         );
     }
 
+    componentWillMount() {
+        console.log('sliderOne WillMount');
+    }
     componentDidMount(){
-        console.log('componentDidMount sliderOne');
+        console.log('sliderOne DidMount ');
 
         $(".single-item").slick({
             dots: true

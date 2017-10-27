@@ -22,13 +22,13 @@ class App extends React.Component{
 
     //lifecycle function
     componentWillMount(){
-        console.log('componentWillMount');
+        console.log('indexWillMount');
     }
     componentDidMount(){
-        console.log('componentDidMount');
+        console.log('indexDidMount');
     }
     componentWillUpdate(){
-        console.log('componentWillUpdate');
+        console.log('indexWillUpdate');
     }
 };
 
