@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Helmet} from "react-helmet";
 require('./css/main.scss');
-import { BrowserRouter as Router, Route, Link, browserHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Route, browserHistory } from 'react-router-dom';
 
 //Module requires
 import TodoComponent from './todocomponent';

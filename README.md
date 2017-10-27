@@ -12,6 +12,8 @@
 - Bundle CSS and Minified
 - Minified JS ON PRODUCTION ENVIRONMENT
 
+- https://reacttraining.com/react-router/web/api/NavLink
+
 How to Run:
 - npm install 
 - npm start

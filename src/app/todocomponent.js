@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Helmet} from 'react-helmet';
+import { NavLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //mui theme
@@ -9,7 +9,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 const muiTheme = getMuiTheme(darkBaseTheme);
 
 //mui components
-import {Tabs, Tab} from 'material-ui/Tabs';
+import { Tabs, Tab } from 'material-ui/Tabs';
 
 // Needed for onTouchTap
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -22,18 +22,18 @@ import SliderOne from './sliderone';
 
 
 //Create component
-class TodoComponent extends React.Component{
-    constructor(props){
+class TodoComponent extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             todos: ['wash up', 'eat some cheese', 'take a nap', 'buy flowers']
         }
     }
-    render(){
+    render() {
         var todos = this.state.todos;
-        todos = todos.map(function(item, index){
-            return(
-                <TodoItem item={item} key={index} onDelete={this.onDelete.bind(this)}/>
+        todos = todos.map(function (item, index) {
+            return (
+                <TodoItem item={item} key={index} onDelete={this.onDelete.bind(this)} />
             )
         }.bind(this));
         return (
@@ -44,50 +44,59 @@ class TodoComponent extends React.Component{
                     </Helmet>
 
                     <ul className="navMenu">
-                        <li><Link to={'/'}>Home</Link></li>
-                        <li><Link to={'/infinitescroll'}>Infinite Scroll</Link></li>
+                        <li>
+                            <NavLink
+                                to="/"
+                                activeClassName="selected"
+                            >Home</NavLink>
+                        </li>
+                        <li>
+                            <NavLink
+                                to="/infinitescroll"
+                            >Infinite Scroll</NavLink>
+                        </li>
                     </ul>
 
                     <Tabs>
-                        <Tab label="Item One"  onActive={this.srcOff}>
+                        <Tab label="Item One" onActive={this.srcOff}>
                             <div className="todos">
 
                                 <p>The busies people have the most leisure...</p>
                                 <ul>{todos}</ul>
-                                <AddItem onAdd={this.onAdd.bind(this)}/>
+                                <AddItem onAdd={this.onAdd.bind(this)} />
 
                             </div>
                         </Tab>
-                        <Tab label="Item Two"  onActive={this.srcOff}>
+                        <Tab label="Item Two" onActive={this.srcOff}>
                             <SliderOne />
                         </Tab>
                         <Tab label="onActive" onActive={this.handleActive}>
                             <div>
                                 <iframe id="video" width="100%" height="480"
-                                src="" data-src="https://www.youtube.com/embed/XGSy3_Czz8k">
+                                    src="" data-src="https://www.youtube.com/embed/XGSy3_Czz8k">
                                 </iframe>
                             </div>
                         </Tab>
                     </Tabs>
-                    
+
                 </div>
             </MuiThemeProvider>
         );
     }// render
 
-    srcOff(){
+    srcOff() {
         document.getElementById('video').src = '';
     }
 
-    handleActive(){
+    handleActive() {
         var src = document.getElementById('video').getAttribute("data-src");
         console.log(src);
         document.getElementById('video').src = src;
     }
 
     //onDelete
-    onDelete(item){
-        var updatedTodos = this.state.todos.filter(function(val, index){
+    onDelete(item) {
+        var updatedTodos = this.state.todos.filter(function (val, index) {
             console.log(item, val);
             return item !== val;
         });
@@ -98,7 +107,7 @@ class TodoComponent extends React.Component{
     }
 
     //onAdd
-    onAdd(item){
+    onAdd(item) {
         var updatedTodos = this.state.todos;
         updatedTodos.push(item);
         this.setState({
@@ -106,10 +115,10 @@ class TodoComponent extends React.Component{
         })
     }
 
-    componentWillMount(){
+    componentWillMount() {
         console.log('componentWillMount todocomponent');
     }
-    componentDidMount(){
+    componentDidMount() {
         console.log('componentDidMount todocomponent');
     }
 
